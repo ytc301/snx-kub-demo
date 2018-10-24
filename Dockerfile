@@ -1,6 +1,6 @@
 FROM nginx:1.14.0
-COPY ./snx.conf /etc/nginx/conf.d/
 RUN mkdir -p /data/www/test
 ADD . /data/www/test
+COPY snx.conf /etc/nginx/conf.d/
 EXPOSE 80
-CMD ["nginx"]
+CMD ["nginx", "-g", "daemon off;"]

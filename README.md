@@ -1,1 +1,1 @@
-# snx-kub-demo test v0.4
+# snx-kub-demo test v0.5

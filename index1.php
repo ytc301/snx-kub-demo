@@ -17,5 +17,5 @@ function get_server_ip() {
  	return $server_ip; 
 }
 echo "This Server IP is: ".get_server_ip();
-echo "Hello Branch v0.4 test";
+echo "Hello Branch v0.5 test";
 ?>

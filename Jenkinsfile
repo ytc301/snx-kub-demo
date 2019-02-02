@@ -8,8 +8,7 @@ pipeline {
     }
     stage('push') {
       steps {
-        sh '''docker login -u admin -p zwhd1903. harbor.hicustom.com
-docker push  harbor.hicustom.com/pub/snx-kub-demo:v1'''
+        sh 'docker push  harbor.hicustom.com/pub/snx-kub-demo:v1'
       }
     }
   }

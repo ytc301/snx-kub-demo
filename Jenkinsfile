@@ -8,7 +8,10 @@ pipeline {
     }
     stage('push') {
       steps {
-        sh 'docker push  harbor.hicustom.com/pub/snx-kub-demo:v1'
+        sh """
+	  docker login -u pstest -p Test1234567890  harbor.hicustom.com \
+	  && docker push  harbor.hicustom.com/pub/snx-kub-demo:v1
+	"""
       }
     }
   }

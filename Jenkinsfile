@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { node { label "jenkins-jnlp-java" } }
   stages {
     stage('build nginx') {
       steps {

@@ -1,5 +1,10 @@
 pipeline {
-  agent { node { label "jenkins-jnlp-java" } }
+  agent {
+    node {
+      label 'jenkins-jnlp-java'
+    }
+
+  }
   stages {
     stage('build nginx') {
       steps {
@@ -8,10 +13,16 @@ pipeline {
     }
     stage('push') {
       steps {
-        sh """
-	  docker login -u pstest -p Test1234567890  harbor.hicustom.com \
-	  && docker push  harbor.hicustom.com/pub/snx-kub-demo:v1
-	"""
+        script {
+          withCredentials([usernamePassword(credentialsId: 'harbor', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+            sh """
+            docker logout ${harbor_addr} \
+            && docker login ${harbor_addr} -u ${dockerHubUser} -p ${dockerHubPassword} \
+            && docker push harbor.hicustom.com/pub/snx-kub-demo:v1
+            """
+          }
+        }
+
       }
     }
   }

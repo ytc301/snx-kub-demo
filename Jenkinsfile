@@ -26,4 +26,7 @@ pipeline {
       }
     }
   }
+  environment {
+    harbor_addr = 'harbor.hicustom.com'
+  }
 }

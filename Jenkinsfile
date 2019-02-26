@@ -15,10 +15,7 @@ pipeline {
         }
         stage('echo') {
           steps {
-            script {
-              echo "abcd" >> /tmp/1.txt
-            }
-
+            sh 'echo "abcd" >> /tmp/1.txt'
           }
         }
       }

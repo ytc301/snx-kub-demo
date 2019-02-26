@@ -41,7 +41,9 @@ tt=`cat /tmp/1.txt`'''
         }
         stage('show') {
           steps {
-            sh 'echo $tt'
+            sh '''echo $tt
+echo "show"
+cat /tmp/1.txt'''
           }
         }
       }

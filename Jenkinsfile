@@ -15,7 +15,10 @@ pipeline {
         }
         stage('echo') {
           steps {
-            sh 'echo "abcd" >> /tmp/1.txt'
+            sh '''echo "abcd" >> /tmp/1.txt
+&&echo "11111" >> /tmp/1.txt
+&&echo "ppp" >> /tmp/1.txt
+&&tt=`cat /tmp/1.txt`'''
           }
         }
       }

@@ -18,7 +18,7 @@ pipeline {
             sh '''echo "abcd" >> /tmp/1.txt
 echo "11111" >> /tmp/1.txt
 echo "ppp" >> /tmp/1.txt
-tt=`cat /tmp/1.txt`'''
+'''
           }
         }
       }
@@ -51,5 +51,6 @@ cat /tmp/1.txt'''
   }
   environment {
     harbor_addr = 'harbor.hicustom.com'
+    tt = '`cat /tmp/1.txt`'
   }
 }

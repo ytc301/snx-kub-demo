@@ -7,8 +7,20 @@ pipeline {
   }
   stages {
     stage('build nginx') {
-      steps {
-        sh 'docker build -t harbor.hicustom.com/pub/snx-kub-demo:v1 .'
+      parallel {
+        stage('build nginx') {
+          steps {
+            sh 'docker build -t harbor.hicustom.com/pub/snx-kub-demo:v1 .'
+          }
+        }
+        stage('echo') {
+          steps {
+            script {
+              echo "abcd" >> /tmp/1.txt
+            }
+
+          }
+        }
       }
     }
     stage('push') {
